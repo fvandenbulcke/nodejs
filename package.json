@@ -1,0 +1,34 @@
+{
+  "name": "nodeJsProject",
+  "version": "1.0.0",
+  "description": "Node Js Api",
+  "author": "florian.vandenbulcke@ext.adeo.com",
+  "main": "./api/server.js",
+  "scripts": {
+    "build": "babel api -d dist --copy-files",
+    "start1": "node ./api/server.js",
+    "start-babel": "babel-node ./api/server.js",
+    "start": "node ./dist/server.js",
+    "dev": "npm run build & npm run start",
+    "watch": "nodemon ./api/server.js --exec babel-node"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.13.3",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.1.1",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-ui-express": "^3.0.10",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "nodemon": "^1.15.1"
+  }
+}
