@@ -1,0 +1,159 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Yet Another Node.js Blogg Application API",
+    "description": "Yet Another Node.js Blogg Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8070",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/info": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Create new info in system",
+        "parameters": [
+          {
+            "name": "info",
+            "in": "body",
+            "description": "Info that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Info"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New info is created",
+            "schema": {
+              "$ref": "#/definitions/Infos"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all infos in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Infos"
+            }
+          }
+        }
+      }
+    },
+    "/info/{infoId}": {
+      "parameters": [
+        {
+          "name": "infoId",
+          "in": "path",
+          "required": true,
+          "description": "ID of info that we want to find",
+          "type": "number"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get info with given ID",
+        "responses": {
+          "200": {
+            "description": "Info is found",
+            "schema": {
+              "$ref": "#/definitions/Info"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete info with given ID",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Info is deleted",
+            "schema": {
+              "$ref": "#/definitions/Infos"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update info with give ID",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "info",
+            "in": "body",
+            "description": "Info with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Info"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Info is updated",
+            "schema": {
+              "$ref": "#/definitions/Infos"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Info": {
+      "required": [
+        "name",
+        "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Infos": {
+      "type": "array",
+      "$ref": "#/definitions/Info"
+    }
+  }
+}
