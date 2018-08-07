@@ -6,10 +6,8 @@
   "main": "./api/server.js",
   "scripts": {
     "build": "babel api -d dist --copy-files",
-    "start1": "node ./api/server.js",
+    "start": "npm run build & node ./dist/server.js",
     "start-babel": "babel-node ./api/server.js",
-    "start": "node ./dist/server.js",
-    "dev": "npm run build & npm run start",
     "watch": "nodemon ./api/server.js --exec babel-node"
   },
   "dependencies": {
