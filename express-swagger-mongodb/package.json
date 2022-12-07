@@ -11,9 +11,9 @@
     "watch": "nodemon ./api/server.js --exec babel-node"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.4",
-    "express": "^4.13.3",
+    "express": "^4.18.2",
     "lodash": "^4.17.10",
     "mongodb": "^3.1.1",
     "swagger-express-mw": "^0.7.0",
